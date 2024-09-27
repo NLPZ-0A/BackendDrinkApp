@@ -11,7 +11,8 @@ DEBUG = True
 
 # api/settings.py
 ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
-ALLOWED_HOSTS = ['.vercel.app', 'https://backend-drink-app.vercel.app']
+ALLOWED_HOSTS = ['.vercel.app', 'https://backend-drink-app.vercel.app', 
+                 'https://backend-drink-o6j37ycvh-nlpz0as-projects.vercel.app/']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
