@@ -9,7 +9,7 @@ SECRET_KEY = 'django-insecure-3u7y+$(tlz@+ffwhq6*pj+70f!*4%wv+p2neo#1a2f+#0cm3$i
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app', 'tu-dominio-personalizado.com']
+ALLOWED_HOSTS = ['.vercel.app', 'https://backend-drink-app.vercel.app']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
