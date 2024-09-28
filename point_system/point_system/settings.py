@@ -10,9 +10,14 @@ SECRET_KEY = 'django-insecure-3u7y+$(tlz@+ffwhq6*pj+70f!*4%wv+p2neo#1a2f+#0cm3$i
 DEBUG = True
 
 # api/settings.py
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
-ALLOWED_HOSTS = ['.vercel.app', 'https://backend-drink-app.vercel.app', 
-                 'https://backend-drink-o6j37ycvh-nlpz0as-projects.vercel.app/']
+ALLOWED_HOSTS = []
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+else:
+    ALLOWED_HOSTS.append('127.0.0.1')
+    ALLOWED_HOSTS.append('localhost')
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -100,15 +105,19 @@ USE_I18N = True
 USE_TZ = True
 
 
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+if not DEBUG:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    # Añade esta línea si estás usando whitenoise para servir archivos estáticos
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# Añade esta línea si estás usando whitenoise para servir archivos estáticos
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
