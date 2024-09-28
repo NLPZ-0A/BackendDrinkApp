@@ -11,7 +11,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-3u7y+$(tlz@+ffwhq6*pj+70f!*4%wv+p2neo#1a2f+#0cm3$i'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG')
+DEBUG = os.environ.get('DEBUG') == 'True'
 print(f'--------------------------------------------LEYENDO SETTINGS-------------------------------------------')
 print(f'--------------------------------------------{DEBUG}-------------------------------------------')
 
