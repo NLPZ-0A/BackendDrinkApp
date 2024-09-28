@@ -74,7 +74,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'point_system.point_system.wsgi.application'
+WSGI_APPLICATION = 'point_system.wsgi.application'
 
 
 # Database
